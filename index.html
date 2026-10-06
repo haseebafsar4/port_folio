@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080909">
+    <meta name="description" content="Haseeb Afsar is a Senior Data Engineer building reliable data platforms, real-time pipelines, and analytics systems.">
+    <title>Haseeb Afsar — Senior Data Engineer</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        color: #f8f7f5;
+        background: #080909;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        --orange: #ff6b2c;
+        --muted: #a6a3a0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100%;
+        overflow-x: hidden;
+        background: #080909;
+      }
+
+      canvas {
+        position: fixed;
+        z-index: 0;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        filter: brightness(0.46) saturate(0.82);
+      }
+
+      .story {
+        position: relative;
+        z-index: 1;
+      }
+
+      .stage {
+        min-height: 72svh;
+        padding: clamp(38px, 4vw, 58px) max(6vw, calc((100vw - 1240px) / 2));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        scroll-margin-top: 12px;
+      }
+
+      .topbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 26px max(6vw, calc((100vw - 1240px) / 2));
+        font-size: 12px;
+      }
+
+      .wordmark {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: clamp(14px, 2.5vw, 32px);
+      }
+
+      .nav-links a {
+        color: #e6e3e0;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover,
+      .text-link:hover {
+        color: var(--orange);
+      }
+
+      .button {
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 0 17px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--orange);
+        color: #fff;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .button span {
+        font-size: 15px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        min-height: 100svh;
+        justify-content: center;
+        padding-top: 96px;
+      }
+
+      .hero-copy {
+        width: min(850px, 78vw);
+      }
+
+      .hero h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(64px, 11.2vw, 150px);
+        line-height: 0.82;
+        letter-spacing: -0.085em;
+      }
+
+      .hero h1 span {
+        display: block;
+        color: var(--orange);
+      }
+
+      .hero-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+        margin-top: clamp(36px, 7vh, 76px);
+      }
+
+      .hero-bottom p,
+      .intro-copy p,
+      .section-copy {
+        max-width: 340px;
+        margin: 0;
+        color: #d0cdca;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .hero-bottom .hero-note {
+        max-width: 250px;
+        font-size: 12px;
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: clamp(42px, 9vh, 96px);
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .hero-meta div {
+        color: #c5c0bc;
+        font-size: 10px;
+      }
+
+      .hero-meta strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--orange);
+        font-size: 11px;
+      }
+
+      .brands {
+        justify-content: flex-start;
+        padding-top: clamp(44px, 8vh, 80px);
+      }
+
+      .brand-strip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px 30px;
+        padding: 22px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        color: #e9e6e3;
+        font-size: clamp(13px, 1.5vw, 17px);
+        font-weight: 700;
+      }
+
+      .brand-strip span:nth-child(even) {
+        color: #b9b5b1;
+        font-weight: 500;
+      }
+
+      .capability-strip {
+        color: #f1eeeb;
+      }
+
+      .section-heading {
+        max-width: 720px;
+        margin: 0;
+        font-size: clamp(38px, 6.2vw, 78px);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+      }
+
+      .intro-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 36px;
+        margin: 42px 0 0;
+      }
+
+      .intro-copy {
+        max-width: 360px;
+      }
+
+      .intro-copy p + p {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .project-card {
+        min-height: clamp(170px, 22vh, 230px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: clamp(18px, 2.2vw, 28px);
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .project-card .number {
+        margin-bottom: auto;
+        color: var(--orange);
+        font-size: 11px;
+      }
+
+      .project-card h3,
+      .service-card h3 {
+        margin: 0 0 8px;
+        font-size: clamp(18px, 2vw, 24px);
+        letter-spacing: -0.04em;
+      }
+
+      .project-card p,
+      .service-card p {
+        max-width: 270px;
+        margin: 0;
+        color: #aaa7a3;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .projects .section-heading {
+        margin-bottom: 24px;
+      }
+
+      .services-heading {
+        display: grid;
+        grid-template-columns: 1fr 0.7fr;
+        align-items: end;
+        gap: 44px;
+        margin-bottom: 28px;
+      }
+
+      .services-heading .section-copy {
+        justify-self: end;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .service-card {
+        min-height: 195px;
+        padding: clamp(20px, 2.7vw, 34px);
+        border-top: 2px solid var(--orange);
+      }
+
+      .service-card .eyebrow {
+        margin-bottom: 34px;
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        text-transform: none;
+      }
+
+      .approach {
+        align-items: flex-start;
+      }
+
+      .approach-panel {
+        width: min(820px, 100%);
+        margin-left: auto;
+        padding: clamp(26px, 5vw, 64px);
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .approach-panel .section-heading {
+        margin-bottom: 24px;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 42px;
+      }
+
+      .steps div {
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.23);
+      }
+
+      .steps strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--orange);
+        font-size: 11px;
+      }
+
+      .steps span {
+        color: #d0cdca;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .cta {
+        align-items: center;
+        text-align: center;
+      }
+
+      .cta .section-heading {
+        max-width: 800px;
+        margin: 0 auto 24px;
+      }
+
+      .cta .section-copy {
+        margin: 0 auto 26px;
+      }
+
+      .text-link {
+        color: #fff;
+      }
+
+      .timeline {
+        max-width: 920px;
+        margin-left: auto;
+      }
+
+      .role {
+        display: grid;
+        grid-template-columns: minmax(130px, 0.35fr) 1fr;
+        gap: 30px;
+        padding: 25px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .role-date,
+      .detail {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .role h3,
+      .detail h3 {
+        margin: 0 0 5px;
+        font-size: clamp(18px, 2.1vw, 24px);
+      }
+
+      .role-company {
+        margin: 0 0 12px;
+        color: var(--orange);
+        font-size: 12px;
+      }
+
+      .role ul {
+        margin: 0;
+        padding-left: 18px;
+        color: #d0cdca;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .role li + li {
+        margin-top: 5px;
+      }
+
+      .skills-grid,
+      .credentials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px 28px;
+        margin-top: 26px;
+      }
+
+      .skill-group,
+      .credential {
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .skill-group h3,
+      .credential h3 {
+        margin: 0 0 10px;
+        font-size: 15px;
+      }
+
+      .skill-group p,
+      .credential p {
+        margin: 0;
+        color: #d0cdca;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .section-lead {
+        max-width: 630px;
+        margin: 18px 0 0;
+        color: #d0cdca;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px 26px;
+        margin: 28px 0 0;
+        color: #d0cdca;
+        font-size: 12px;
+      }
+
+      .contact-details a {
+        color: inherit;
+        text-decoration-color: rgba(255, 255, 255, 0.45);
+        text-underline-offset: 4px;
+      }
+
+      .contact-details a:hover {
+        color: var(--orange);
+      }
+
+      .experience,
+      .toolkit,
+      .credentials {
+        justify-content: center;
+      }
+
+      @media (max-width: 700px) {
+        .stage {
+          min-height: auto;
+          padding: 52px 22px 40px;
+        }
+
+        .topbar {
+          padding: 18px 22px;
+        }
+
+        .nav-links {
+          gap: 13px;
+        }
+
+        .nav-links a {
+          font-size: 10px;
+        }
+
+        .topbar .button {
+          display: none;
+        }
+
+        .hero {
+          min-height: 100svh;
+          padding-top: 92px;
+        }
+
+        .hero-copy {
+          width: 100%;
+        }
+
+        .hero h1 {
+          font-size: clamp(62px, 17vw, 104px);
+        }
+
+        .hero-bottom {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 14px;
+          margin-top: 32px;
+        }
+
+        .hero-meta {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+          margin-top: 34px;
+        }
+
+        .brands {
+          padding-top: 50px;
+        }
+
+        .brand-strip {
+          justify-content: flex-start;
+          gap: 18px 24px;
+        }
+
+        .intro-row,
+        .services-heading {
+          align-items: flex-start;
+          grid-template-columns: 1fr;
+          flex-direction: column;
+          gap: 18px;
+          margin: 28px 0 0;
+        }
+
+        .project-grid,
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-card {
+          min-height: 132px;
+        }
+
+        .service-card {
+          min-height: 0;
+          padding: 20px;
+        }
+
+        .skills-grid,
+        .credentials-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 22px 18px;
+        }
+
+        .role {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .experience,
+        .toolkit,
+        .credentials {
+          min-height: auto;
+          padding-top: 52px;
+          padding-bottom: 42px;
+        }
+
+        .service-card .eyebrow {
+          margin-bottom: 18px;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          margin-top: 28px;
+        }
+
+        .approach-panel {
+          margin: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="sequence" aria-label="Scroll-controlled image animation"></canvas>
+    <main class="story">
+      <section class="stage hero" id="home">
+        <header class="topbar">
+          <a class="wordmark" href="#home">HASEEB AFSAR</a>
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#work">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+          </nav>
+          <a class="button" href="#contact">Contact <span aria-hidden="true">↗</span></a>
+        </header>
+        <div class="hero-copy">
+          <p class="eyebrow">Senior Data Engineer · Saudi Arabia</p>
+          <h1>Haseeb <span>Afsar</span></h1>
+          <div class="hero-bottom">
+            <p class="hero-note">Building dependable data platforms, real-time pipelines, and analytics that teams can trust.</p>
+            <p>Five years delivering production data systems with Python, SQL, Kafka, Airflow, dbt, AWS, and Azure.</p>
+          </div>
+          <div class="hero-meta" aria-label="Areas of focus">
+            <div><strong>50+</strong>Operational sources unified</div>
+            <div><strong>50%</strong>Faster reporting fetches</div>
+            <div><strong>&lt;1 min</strong>CDC source-to-analytics</div>
+            <div><strong>5 years</strong>Data engineering experience</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage brands" id="about">
+        <p class="eyebrow">Data engineering · Analytics · Cloud</p>
+        <div class="brand-strip capability-strip" aria-label="Core data technologies">
+          <span>Python</span><span>Advanced SQL</span><span>Apache Kafka</span><span>dbt</span><span>Azure</span><span>ClickHouse</span>
+        </div>
+        <div class="intro-row">
+          <div>
+            <p class="eyebrow">About me</p>
+            <h2 class="section-heading">Reliable data. Clearer decisions.</h2>
+          </div>
+          <div class="intro-copy">
+            <p>I build production-critical ETL/ELT platforms, real-time CDC pipelines, and governed analytical models.</p>
+            <p>Recently, I moved reporting workloads off a live Amazon Aurora database to ClickHouse, reducing reporting fetch time by up to 50%.</p>
+            <a class="button" href="#work">View selected work <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage projects" id="work">
+        <p class="eyebrow">Selected projects</p>
+        <h2 class="section-heading">Data platforms built for real workloads.</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="number">01 / ALMABANI · ANALYTICS OFFLOAD</span>
+            <h3>Aurora + ClickHouse</h3>
+            <p>Moved BI queries off production using a read-only Aurora replica, CDC, and multi-stage ClickHouse transformations. Reporting fetch time improved by up to 50%.</p>
+          </article>
+          <article class="project-card">
+            <span class="number">02 / SELF-DIRECTED · AZURE</span>
+            <h3>End-to-end lakehouse</h3>
+            <p>Built a Bronze–Silver–Gold lakehouse with Data Factory, ADLS Gen2, Databricks, Delta Lake, Synapse, Key Vault, and Azure Monitor.</p>
+          </article>
+          <article class="project-card">
+            <span class="number">03 / BAKHBAR KISSAN · MIGRATION</span>
+            <h3>Cloud data warehouse</h3>
+            <p>Migrated from on-premises SQL Server with redesigned columnar schemas and validated pipelines: 45% faster queries, 35% lower warehouse costs, zero reporting downtime.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="stage services" id="services">
+        <div class="services-heading">
+          <div>
+            <p class="eyebrow">Areas of focus</p>
+            <h2 class="section-heading">From source systems to trusted insight.</h2>
+          </div>
+          <div>
+            <p class="section-copy">Practical engineering across ingestion, streaming, transformation, data quality, and the analytics layer.</p>
+            <a class="button" href="#experience">See experience <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <p class="eyebrow">01 / INGEST & STREAM</p>
+            <h3>Data pipelines</h3>
+            <p>Reliable batch and CDC flows with Airflow, Kafka, Debezium, NiFi, and API connectors.</p>
+          </article>
+          <article class="service-card">
+            <p class="eyebrow">02 / MODEL & TRANSFORM</p>
+            <h3>Analytics platforms</h3>
+            <p>Medallion architecture, dbt, dimensional models, star schemas, and cloud lakehouses.</p>
+          </article>
+          <article class="service-card">
+            <p class="eyebrow">03 / TRUST & GOVERN</p>
+            <h3>Data quality</h3>
+            <p>Validation, schema evolution, lineage, audit trails, SLA monitoring, and alerting.</p>
+          </article>
+          <article class="service-card">
+            <p class="eyebrow">04 / SERVE & OPTIMIZE</p>
+            <h3>Performance</h3>
+            <p>Efficient analytical stores and models that improve reporting speed and cost.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="stage experience" id="experience">
+        <div class="timeline">
+          <p class="eyebrow">Experience</p>
+          <h2 class="section-heading">Building dependable data systems, end to end.</h2>
+          <article class="role">
+            <div class="role-date">Apr 2025 — Present<br>Jeddah, Saudi Arabia</div>
+            <div>
+              <h3>Senior Data Engineer</h3>
+              <p class="role-company">Almabani General Contractors</p>
+              <ul>
+                <li>Own the first enterprise Medallion Architecture data platform, integrating 50+ sources across databases, SaaS APIs, and cloud storage.</li>
+                <li>Offloaded production reporting to a read-only Aurora instance and ClickHouse; reporting fetch time fell by up to 50%.</li>
+                <li>Built Debezium and Kafka CDC with sub-minute latency and no added query load on production.</li>
+                <li>Added data quality checks, SLA monitoring, alerting, REST API connectors, and governed NiFi flows with lineage.</li>
+                <li>Introduced dbt testing, documentation, GitLab CI/CD, and star-schema models, cutting manual ETL effort by about 60%.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="role">
+            <div class="role-date">Jan 2022 — Dec 2024</div>
+            <div>
+              <h3>Data Engineer</h3>
+              <p class="role-company">Bakhbar Kissan Ltd</p>
+              <ul>
+                <li>Owned Python and Airflow ETL/ELT pipelines processing 2GB+ daily with idempotent, failure-safe workflows.</li>
+                <li>Led SQL Server to cloud warehouse migration: 45% faster queries and 35% lower warehouse costs with no reporting downtime.</li>
+                <li>Implemented validation, governance, schema evolution, SCD patterns, automated cleansing, and disaster recovery.</li>
+                <li>Built Looker dashboards adopted as the standard view for growth metrics.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="role">
+            <div class="role-date">Jul 2021 — Dec 2021</div>
+            <div>
+              <h3>Junior Data Engineer</h3>
+              <p class="role-company">Vebnest Ltd</p>
+              <ul>
+                <li>Built SQL and Python ETL workflows from relational databases into analytical layers.</li>
+                <li>Created automated validation scripts to detect schema drift before it reached reporting.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="stage approach">
+        <div class="approach-panel">
+          <p class="eyebrow">Future-proof systems · Consistency across touchpoints</p>
+          <h2 class="section-heading">Built for change. Consistent from source to insight.</h2>
+          <p class="section-copy">I build for recoverability, observability, and trust at each stage—not just a successful first run.</p>
+          <div class="steps">
+            <div><strong>01 / Ingest</strong><span>Connect governed data sources with resilient batch and low-latency CDC.</span></div>
+            <div><strong>02 / Transform</strong><span>Apply tested, documented models through clear Bronze, Silver, and Gold layers.</span></div>
+            <div><strong>03 / Serve</strong><span>Deliver performant, quality-checked datasets ready for analytics and BI.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage toolkit" id="skills">
+        <p class="eyebrow">Technical toolkit</p>
+        <h2 class="section-heading">Tools for modern data platforms.</h2>
+        <div class="skills-grid">
+          <article class="skill-group"><h3>Cloud</h3><p>Azure Data Factory, ADLS Gen2, Databricks, Synapse, Azure SQL, Event Hubs, Key Vault, Azure Monitor, Azure DevOps, Entra ID; Amazon Aurora, S3; Google BigQuery.</p></article>
+          <article class="skill-group"><h3>Data stores</h3><p>ClickHouse, PostgreSQL, SQL Server, MySQL, BigQuery, Azure Synapse.</p></article>
+          <article class="skill-group"><h3>Streaming & orchestration</h3><p>Apache Kafka, Debezium, Apache NiFi, Airflow, Dagster, Azure Data Factory.</p></article>
+          <article class="skill-group"><h3>Languages</h3><p>Python (OOP, pytest, type hints), advanced SQL, PySpark, Shell/Bash.</p></article>
+          <article class="skill-group"><h3>Architecture & modeling</h3><p>Medallion Architecture, data lakehouse, star schema, dimensional modeling, SCD types, data contracts.</p></article>
+          <article class="skill-group"><h3>Quality & delivery</h3><p>dbt models, tests, snapshots, docs; validation, SLA monitoring, alerting, audit logging, lineage, schema evolution, Docker, GitLab CI/CD.</p></article>
+          <article class="skill-group"><h3>Analytics & BI</h3><p>Power BI, Tableau, Apache Superset, Looker.</p></article>
+        </div>
+      </section>
+
+      <section class="stage credentials" id="education">
+        <p class="eyebrow">Education & credentials</p>
+        <h2 class="section-heading">A strong foundation, kept current.</h2>
+        <div class="credentials-grid">
+          <article class="credential">
+            <h3>Bachelor of Information Technology</h3>
+            <p>Bahria University, Islamabad<br>2017 — 2021</p>
+          </article>
+          <article class="credential">
+            <h3>ETL and Data Pipelines with Shell, Airflow and Kafka</h3>
+            <p>IBM / Coursera · October 2024</p>
+          </article>
+          <article class="credential">
+            <h3>Relational Database Administration (DBA)</h3>
+            <p>IBM / Coursera · October 2024</p>
+          </article>
+          <article class="credential">
+            <h3>Databases and SQL for Data Science with Python</h3>
+            <p>IBM / Coursera · September 2024</p>
+          </article>
+          <article class="credential">
+            <h3>Python for Data Science, AI and Development</h3>
+            <p>IBM / Coursera · July 2024</p>
+          </article>
+          <article class="credential">
+            <h3>Languages & location</h3>
+            <p>English: professional working proficiency<br>German: A1, currently learning<br>Based in Saudi Arabia · Open to relocation</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="stage cta" id="contact">
+        <p class="eyebrow">Open to opportunities</p>
+        <h2 class="section-heading">Let’s build data people can trust.</h2>
+        <p class="section-copy">Based in Saudi Arabia and open to relocation. Get in touch to discuss data engineering opportunities.</p>
+        <a class="button" href="mailto:haseebafsar4@gmail.com">Email Haseeb <span aria-hidden="true">↗</span></a>
+        <div class="contact-details">
+          <a href="mailto:haseebafsar4@gmail.com">haseebafsar4@gmail.com</a>
+          <a href="https://www.linkedin.com/in/haseebafsar4" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <span>Saudi Arabia · Open to relocation</span>
+        </div>
+      </section>
+    </main>
+    <script>
+      const frameCount = 240;
+      const canvas = document.querySelector("#sequence");
+      const context = canvas.getContext("2d", { alpha: false });
+      const frames = Array.from({ length: frameCount }, (_, index) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = `frames/ezgif-frame-${String(index + 1).padStart(3, "0")}.jpg`;
+        image.addEventListener("error", () => {
+          console.error(`Unable to load animation frame ${index + 1}: ${image.src}`);
+        });
+        return image;
+      });
+
+      let renderedFrame = -1;
+      let animationRequest = 0;
+
+      function drawFrame() {
+        animationRequest = 0;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        const frameIndex = Math.round(Math.max(0, Math.min(1, progress)) * (frameCount - 1));
+        const image = frames[frameIndex];
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        const width = Math.round(window.innerWidth * pixelRatio);
+        const height = Math.round(window.innerHeight * pixelRatio);
+
+        if (!image.complete || image.naturalWidth === 0) {
+          return;
+        }
+        if (frameIndex === renderedFrame && canvas.width === width && canvas.height === height) {
+          return;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+        const drawWidth = image.naturalWidth * scale;
+        const drawHeight = image.naturalHeight * scale;
+        context.drawImage(image, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight);
+        renderedFrame = frameIndex;
+      }
+
+      function requestDraw() {
+        if (!animationRequest) {
+          animationRequest = window.requestAnimationFrame(drawFrame);
+        }
+      }
+
+      frames.forEach((image) => image.addEventListener("load", requestDraw));
+      window.addEventListener("scroll", requestDraw, { passive: true });
+      window.addEventListener("resize", requestDraw);
+      requestDraw();
+    </script>
+  </body>
+</html>
